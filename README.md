@@ -1,6 +1,6 @@
 # Cards
 
-**TODO: Add description**
+First section of [Udemy Elixir/Phoenix course](https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial).
 
 ## Installation
 
@@ -17,4 +17,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:cards]]
         end
-
