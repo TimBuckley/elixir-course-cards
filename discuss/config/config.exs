@@ -39,6 +39,6 @@ environment_vars = contents
   |> Enum.map(fn line -> String.split(line, "=") |> List.to_tuple end)
   |> Map.new
 
-config :ueberauth, Ueberauth.Strategy.Github.Oauth,
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: environment_vars["CLIENT_ID"],
   client_secret: environment_vars["CLIENT_SECRET"]
