@@ -25,3 +25,20 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :ueberauth, Ueberauth,
+  providers: [
+    github: { Ueberauth.Strategy.Github, [] }
+  ]
+
+
+{:ok, contents} = File.read ".env"
+
+environment_vars = contents
+  |> String.split("\n", trim: true)
+  |> Enum.map(fn line -> String.split(line, "=") |> List.to_tuple end)
+  |> Map.new
+
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: environment_vars["CLIENT_ID"],
+  client_secret: environment_vars["CLIENT_SECRET"]
