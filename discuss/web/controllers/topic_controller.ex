@@ -60,7 +60,8 @@ defmodule Discuss.TopicController do
     |> redirect(to: topic_path(conn, :index))
   end
 
-  def show(conn, _params) do
-    redirect conn, to: topic_path(conn, :index)
+  def show(conn, %{"id" => topic_id} = params) do
+    topic = Repo.get!(Topic, topic_id)
+    render conn, "show.html", topic: topic
   end
 end
